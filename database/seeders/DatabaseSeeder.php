@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Car::factory(10)->create();
-        User::factory(10)->create();
+        // Car::factory(10)->create();
+        // User::factory(10)->create();
 
         $file = UploadedFile::fake()->image('thumbnail.jpg');
         $fileName = rand(0,9999999) . '_' . $file->getClientOriginalName();

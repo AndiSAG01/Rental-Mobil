@@ -220,7 +220,7 @@ aria-hidden="true">
 
 <!-- Page level plugins -->
 <script src="{{ asset ('admin2/vendor/chart.js/Chart.min.js') }}"></script>
-
+<x-component-rental></x-component-rental>
 @yield('js')
 </body>
 
