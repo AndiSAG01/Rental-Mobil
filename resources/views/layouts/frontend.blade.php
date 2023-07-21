@@ -20,7 +20,6 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
-    @vite([])
   </head>
 
   <body>
