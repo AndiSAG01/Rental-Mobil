@@ -27,6 +27,7 @@ class CarFactory extends Factory
             'slug' => $this->faker->slug(),
             'harga_sewa' => $this->faker->numberBetween(100000, 1000000),
             'gambar' => $filePath,
+            'plat' => $this->faker->company(),
             'bahan_bakar' => $this->faker->company(),
             'jumlah_kursi' => $this->faker->randomNumber(1),
             'transmisi' => $this->faker->randomElement(['manual', 'matic']),

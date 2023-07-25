@@ -22,6 +22,10 @@
                 <input type="number" name="tahun_mobil" class="form-control" id="tahun_mobil" value="{{ old ('tahun_mobil') }}">
             </div>
             <div class="form-group">
+                <label for="plat">Plat Mobil</label>
+                <input type="text" name="plat" class="form-control" id="tahun_mobil" value="{{ old ('plat') }}">
+            </div>
+            <div class="form-group">
                 <label for="bahan_bakar">Bahan Bakar</label>
                 <input type="text" name="bahan_bakar" class="form-control" value="{{ old('bahan_bakar') }}">
             </div>

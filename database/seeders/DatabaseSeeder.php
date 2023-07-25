@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('users')->insert([
+            'kd_user' => 'admin'.Str::random(4),
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'username' => 'admin'.Str::random(2),

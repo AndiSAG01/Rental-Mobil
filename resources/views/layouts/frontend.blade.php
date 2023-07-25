@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
 
+
   <body>
 
 
@@ -38,7 +39,7 @@
 
 
 
-      <header class="site-navbar site-navbar-target" style="background-color: rgb(129, 129, 129)" role="banner">
+      <header class="site-navbar site-navbar-target" style="background-color: #AD9F8A" role="banner">
 
         <div class="container">
           <div class="row align-items-center position-relative">

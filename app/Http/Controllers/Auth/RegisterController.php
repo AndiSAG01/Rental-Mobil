@@ -58,6 +58,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -86,6 +87,7 @@ class RegisterController extends Controller
         }
 
         return User::create([
+            'kd_user'=>Str::random(10),
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -98,4 +100,5 @@ class RegisterController extends Controller
             'phone_number' => $data['phone_number'],
         ]);
     }
+
 }

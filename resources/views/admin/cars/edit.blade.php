@@ -20,6 +20,10 @@
                         <input type="number" name="harga_sewa" class="form-control" value="{{ old('harga_sewa', $car -> harga_sewa) }}">
                     </div>
                     <div class="form-group">
+                        <label for="plat">Plat Mobil</label>
+                        <input type="text" name="plat" class="form-control" value="{{ old('plat', $car -> plat) }}">
+                    </div>
+                    <div class="form-group">
                         <label for="bahan_bakar">Bahan Bakar</label>
                         <input type="text" name="bahan_bakar" class="form-control" value="{{ old('bahan_bakar', $car -> bahan_bakar) }}">
                     </div>

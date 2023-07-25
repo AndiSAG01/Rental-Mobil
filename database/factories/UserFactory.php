@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Haruncpi\laravelIdGenerator\IdGenerator;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -23,8 +24,8 @@ class UserFactory extends Factory
         $fileName = rand(0,9999999) . '_' . $file->getClientOriginalName();
         $filePath = $file->storeAs('cars', $fileName, 'public');
 
-
         return [
+            'kd_user' => $this->faker->slug().Str::random(4),
             'name' => $this->faker->name(),
             'email' => $this->faker->email(),
             'username' => $this->faker->userName(),

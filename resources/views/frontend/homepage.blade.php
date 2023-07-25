@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <div class="hero" style="background-image: url('assets/images/hero_1_a.jpg');">
+    <div class="hero" style="background-image: url('assets/images/rental.png');">
 
         <div class="container">
             <div class="row align-items-center justify-content-center">

@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @include('datatables')
 @section('content')
-    <div class="site-section" style="background-image: url('assets/images/hero_1_a.jpg')">
+    <div class="hero" style="background-image: url('assets/images/rental.png')">
         <div class="container mt-5 pt-5">
             <div class="card-body">
                 <div class="table-responsive">

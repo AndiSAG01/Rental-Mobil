@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->integer('harga_sewa');
             $table->text('gambar');
+            $table->string('plat');
             $table->string('bahan_bakar');
             $table->string('jumlah_kursi');
             $table->string('transmisi');

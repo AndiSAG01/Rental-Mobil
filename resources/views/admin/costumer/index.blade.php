@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Kode Customer</th>
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Alamat</th>
@@ -25,6 +26,9 @@
                         @foreach($customers as $no => $key)
                         <tr>
                             <td>{{ ++$no }}</td>
+                            <td>
+                                {{ $key->kd_user }}
+                            </td>
                             <td>{{ $key->name }}</td>
                             <td>{{ $key->username }}</td>
                             <td>{{ $key->alamat }}</td>
