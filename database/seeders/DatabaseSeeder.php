@@ -28,10 +28,10 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('users')->insert([
-            'kd_user' => 'admin'.Str::random(4),
+            'kd_user' => Str::random(5),
             'name' => 'Admin',
             'email' => 'admin@admin.com',
-            'username' => 'admin'.Str::random(2),
+            'username' => 'admin',
             'alamat' => 'Alamat Admin',
             'gender' => 'Male',
             'phone_number' => '1234567890',

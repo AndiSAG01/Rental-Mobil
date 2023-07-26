@@ -25,7 +25,7 @@ class UserFactory extends Factory
         $filePath = $file->storeAs('cars', $fileName, 'public');
 
         return [
-            'kd_user' => $this->faker->slug().Str::random(4),
+            'kd_user' => $this->faker->slug().Str::random(5),
             'name' => $this->faker->name(),
             'email' => $this->faker->email(),
             'username' => $this->faker->userName(),

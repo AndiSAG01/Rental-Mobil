@@ -87,13 +87,13 @@ class RegisterController extends Controller
         }
 
         return User::create([
-            'kd_user'=>Str::random(10),
+            'kd_user'=>Str::random(5),
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'isAdmin' => false,
             'gender' => $data['gender'],
-            'username' => Str::random(3) . $data['username'],
+            'username' => $data['username'],
             'alamat' => $data['alamat'],
             'ktp_photo' => $imagePath,
             'ktp_number' => $data['ktp_number'],
