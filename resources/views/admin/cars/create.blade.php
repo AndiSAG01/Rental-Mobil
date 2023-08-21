@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label for="denda">Denda</label>
-                <input name="denda" class="form-control" id="denda" cols="30" rows="5">{{ old ('denda') }}
+                <input type = 'number' name="denda" class="form-control" id="denda" cols="30" rows="5">{{ old ('denda') }}
             </div>
             <div class="form-group">
                 <label for="p3k">p3k</label>

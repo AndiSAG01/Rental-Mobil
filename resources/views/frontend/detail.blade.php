@@ -12,9 +12,10 @@
                             <div class="col mb-5">
                                 <div class="card h-10">
                                     <!-- Sale badge-->
-                                    <div class="badge badge-custom <?php echo $data->status ? 'bg-success' : 'bg-danger'; ?> text-white position-absolute"
+                                    <div class="badge badge-custom bg-{{ $data->status == 'Tersedia' ? 'success' : 'danger' }}
+                                        text-white position-absolute"
                                         style="top: 0; right: 0">
-                                        <?php echo $data->status; ?>
+                                        {{ $data->status}}
                                     </div>
 
                                     <img class="card-img-top" src="{{ Storage::url($data->gambar) }}" alt="..." />
@@ -80,7 +81,7 @@
                                                 <h5 class="fw-bolder">Special Item</h5>
                                                 <div class=" mb-3">
                                                     <span style="font-size: 1rem" class="text-primary">
-                                                        Rp.{{ $data->harga_sewa }}/</span>day
+                                                        @currency($data->harga_sewa)</span>day
                                                 </div>
                                             </div>
                                             <ul class="list-unstyled list-style-group">
@@ -110,10 +111,12 @@
                                     <!-- Product actions-->
                                     <div class="card-footer border-top-0 bg-transparent">
                                         <div class="text-center">
+                                            @if ($data ->status == 'Tersedia')
                                             <a class="btn d-flex align-items-center justify-content-center btn-primary mt-auto"
                                                 href="{{ route('sewa', $data->id) }}" style="column-gap: 0.4rem">Sewa
                                                 Mobil</i>
                                             </a>
+                                            @endif
                                         </div>
                                     </div>
 

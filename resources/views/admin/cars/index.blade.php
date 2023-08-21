@@ -29,7 +29,7 @@
                             <td>
                                 <img src="{{  Storage::url($car->gambar) }}" width="200">
                             </td>
-                            <td>{{ $car->harga_sewa}}</td>
+                            <td>@currency($car->harga_sewa)</td>
                             <td>{{ $car->status }}</td>
                             <td>
                                 <a href="{{ route('cars.edit', $car -> id ) }}" class="btn btn-sm btn-warning">Edit</a>

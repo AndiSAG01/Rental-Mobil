@@ -15,6 +15,7 @@
             <th>Mobil</th>
             <th>Tanggal Rental</th>
             <th>Tanggal Kembali</th>
+            <th>Total Harga sewa</th>
             <th>Total Denda</th>
             <th>Status</th>
             <th>Tanggal Selesai Sewa</th>
@@ -29,12 +30,22 @@
                 <td>{{ $ts->car->nama_mobil }}</td>
                 <td>{{ Carbon\Carbon::parse($ts->tanggal_rental)->format('d M Y') }}</td>
                 <td>{{ Carbon\Carbon::parse($ts->tanggal_kembali)->format('d M Y') }}</td>
+                <td> @php
+                    $date = \Carbon\Carbon::parse($ts->tanggal_rental)->diffInDays(\Carbon\Carbon::parse($ts->tanggal_kembali));
+                    $driver = $date * 200000;
+                @endphp
+                @if ($ts->driver == 1)
+                @currency($date * $ts->car->harga_sewa + $driver)
+                @else
+                @currency($date * $ts->car->harga_sewa)
+                @endif
+                </td>
                 <td>
                     @php
                         $selisihHari = Carbon\Carbon::today()->diffInDays($ts->tanggal_kembali);
                     @endphp
                     @if (now() >= $ts->tanggal_kembali)
-                        {{ $selisihHari * $ts->car->denda }}
+                    @currency($selisihHari * $ts->car->denda)
                     @else
                         Tidak Ada Denda
                     @endif
@@ -48,6 +59,8 @@
                         <a class="btn btn-secondary" href="#" role="button">Menunggu Konfirmasi</a>
                     @elseif(!$ts->status)
                         <a class="btn btn-primary" href="#" role="button">Belum bayar</a>
+                        @elseif ($ts->status == 'sewa anda di tolak' )
+                        <a class="btn btn-danger" href="#" role="button">Di Tolak</a>
                     @endif
                 </td>
                 <td>
@@ -67,8 +80,14 @@
 
                             <button type="submit" class="btn btn-primary">Konfirmasi</button>
                         </form>
-                    @elseif(!$ts->status)
 
+                    @elseif ($ts->status == null )
+                    <form action="{{ Route('admin.transaksi.reject', $ts->id) }}" method="post">
+                        @csrf
+                        @method('put')
+
+                        <button type="submit" class="btn btn-danger">Tolak</button>
+                    </form>
                     @endif
                 </td>
             </tr>

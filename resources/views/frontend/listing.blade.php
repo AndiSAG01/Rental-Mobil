@@ -16,9 +16,10 @@
                 @foreach ($mobil as $item)
                     <div class="col-md-10 col-lg-5 mb-4">
                         <div class="listing d-block  align-items-stretch card">
-                            <div class="badge badge-custom bg-success text-white position-absolute"
+                            <div class="badge badge-custom bg-{{ $item->status == 'Tersedia' ? 'success' : 'danger' }}
+                                text-white position-absolute"
                                 style="top: 0; right: 0">
-                                {{ $item->status }}
+                                {{$item -> status }}
                             </div>
                             <div class="listing-img h-100 mr-4">
                                 <img src="{{ Storage::url($item->gambar) }}" alt="Image" class="img-fluid">
@@ -27,7 +28,7 @@
                                 <h3>{{ $item->nama_mobil }} </h3>
                                 <h3>{{ $item->plat }}</h3>
                                 <div class="rent-price">
-                                    <strong>Rp.{{ $item->harga_sewa }}</strong><span class="mx-1">/</span>day
+                                    <strong>@currency($item->harga_sewa)</strong><span class="mx-1">/</span>day
                                 </div>
                                 <div class="d-block d-md-flex mb-3 border-bottom pb-3">
                                     <div class="listing-feature pr-4">
@@ -48,7 +49,7 @@
                                     </div>
                                     <div class="listing-feature pr-4">
                                         <span class="caption">Denda :</span>
-                                        <span class="text">{{ $item->denda }}</span>
+                                        <span class="text">@currency($item->denda)</span>
                                     </div>
                                 </div>
                                 <div>
@@ -56,7 +57,9 @@
                                     <p>
                                         <a href="{{ route('detail', $item->id) }}"
                                             class="btn btn-primary btn-sm">Detail</a>
-                                        <a href="{{ route('sewa', $item->id) }}" class="btn btn-primary btn-sm">Sewa</a>
+                                            @if ($item ->status == 'Tersedia')
+                                            <a href="{{ route('sewa', $item->id) }}" class="btn btn-primary btn-sm">Sewa</a>
+                                            @endif
                                     </p>
 
                                 </div>

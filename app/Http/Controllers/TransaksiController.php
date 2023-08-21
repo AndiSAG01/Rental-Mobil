@@ -7,6 +7,7 @@ use App\Models\Car;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use Illuminate\Support\Facades\Auth;
+use SebastianBergmann\CodeCoverage\Driver\Driver;
 
 class TransaksiController extends Controller
 {
@@ -15,6 +16,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
+
         return view('frontend.transaksi', [
             'transaksi' => Transaksi::where('user_id', Auth()->user()->id)->get(),
         ]);
@@ -29,6 +31,7 @@ class TransaksiController extends Controller
         Transaksi::create([
             'user_id' => $request->user_id,
             'car_id' => $request->car_id,
+            'driver' => $request->driver,
             'tanggal_rental' => $request->tanggal_rental,
             'tanggal_kembali' => $request->tanggal_kembali,
             'status' => null
@@ -89,7 +92,7 @@ class TransaksiController extends Controller
         // Delete related transactions
         Transaksi::where('id', $id)->delete();
         return redirect()->back()->with([
-            'message' => 'Data Mobil Berhasil Dihapus',
+            'message' => 'Data Transaksi Berhasil Dihapus',
             'alert-type'=> 'danger'
         ]);
     }

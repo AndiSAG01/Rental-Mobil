@@ -13,6 +13,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Mobil</th>
+                                <th scope="col">Memakai Driver</th>
                                 <th scope="col">Total Harga Sewa</th>
                                 <th scope="col">Tanggal Rental</th>
                                 <th scope="col">Tanggal Kembali</th>
@@ -25,8 +26,16 @@
                                 <tr>
                                     <th scope="row">{{ ++$index }}</th>
                                     <td>{{ $ts->car->nama_mobil }}</td>
-                                    <td>Rp.
-                                        {{ \Carbon\Carbon::parse($ts->tanggal_rental)->diffInDays(\Carbon\Carbon::parse($ts->tanggal_kembali)) * $ts->car->harga_sewa }}
+                                    <td>{{$ts->driver == 0 ? 'TIDAK': 'YA'}}</td>
+                                    <td> @php
+                                        $date = \Carbon\Carbon::parse($ts->tanggal_rental)->diffInDays(\Carbon\Carbon::parse($ts->tanggal_kembali));
+                                        $driver = $date * 200000;
+                                    @endphp
+                                    @if ($ts->driver == 1)
+                                    @currency($date * $ts->car->harga_sewa + $driver)
+                                    @else
+                                    @currency($date * $ts->car->harga_sewa )
+                                    @endif
                                     </td>
                                     </td>
                                     <td>{{ $ts->tanggal_rental }}</td>
@@ -47,6 +56,8 @@
                                         @elseif($ts->status == 'menunggu konfirmasi')
                                             <a class="btn btn-secondary" href="#" role="button">Menunggu
                                                 Konfirmasi</a>
+                                                @elseif($ts->status == 'sewa anda di tolak')
+                                                    <span class="text-white p-3 badge bg-danger">Di Tolak</span>
                                         @elseif(!$ts->status)
                                             <a href="{{ Route('transaksi.show', $ts->id) }}"
                                                 class="btn btn-sm btn-warning">Upload Pembayaran</a>

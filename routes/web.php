@@ -72,6 +72,7 @@ Route::middleware(['admin:1'])->group(function () {
     //transksi
     Route::get('/admin/transaksi', [TransaksiAdmController::class, 'index'])->name('admin.transaksi.index');
     Route::get('/admin/transaksi/{id}', [TransaksiAdmController::class, 'end'])->name('admin.transaksi.selesai');
+    Route::put('/admin/transaksi/{id}/reject', [TransaksiAdmController::class, 'reject'])->name('admin.transaksi.reject');
     Route::get('transaction/report', [HomeController::class, 'transaction'])->name('report.Transaction');
 
     //bank

@@ -15,12 +15,12 @@
           <div class="card-body">
             <div class="listing d-block  align-items-stretch">
               <div class="h-100 mr-4">
-                <img src="{{ Storage::url($car->gambar)}}" alt="Image" class="rounded mx-auto d-block">
+                <img src="{{ Storage::url($car->gambar)}}" alt="Image" class="img-fluid">
               </div>
               <div class="listing-contents h-100">
                 <h3>{{ $car->nama_mobil }}</h3>
                 <div class="rent-price">
-                  <strong>Rp.{{ $car->harga_sewa }}</strong><span class="mx-1">/</span>day
+                  <strong>@currency( $car->harga_sewa)</strong><span class="mx-1">/</span>day
                 </div>
                 <div class="d-block d-md-flex mb-3 border-bottom pb-3">
                   <div class="listing-feature pr-4">
@@ -56,6 +56,13 @@
           </h4>
           <input type="hidden" name="user_id" value="{{ Auth()->user()->id }}">
           <input type="hidden" name="car_id" value="{{ $car->id }}">
+          <div class="form-group">
+            <label for="tanggal_sewa">Memakai Driver</label>
+            <select name="driver" id="transmisi" class="form-control">
+                <option value="1">YA</option>
+                <option value="0">TIDAK</option>
+            </select>
+          </div>
           <div class="form-group">
             <label for="tanggal_sewa">Tanggal Sewa:</label>
             <input type="date" name="tanggal_rental" id="tanggal_sewa" class="form-control" required>
