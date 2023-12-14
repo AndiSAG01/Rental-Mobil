@@ -29,14 +29,17 @@ class CustomerController extends Controller
 
     public function delete($id)
     {
-        // Delete the car record
-        User::where('id', $id)->delete();
+        // Delete related transaksi records
+    Transaksi::where('user_id', $id)->delete();
 
-        return redirect()->back()->with([
-            'message' => 'Data Customer Berhasil Dihapus',
-            'alert-type'=> 'danger'
-        ]);
+    // Delete the user record
+    User::where('id', $id)->delete();
+
+    return redirect()->back()->with([
+        'message' => 'Data Customer Berhasil Dihapus',
+        'alert-type' => 'danger'
+    ]);
     }
 
-    
+
 }

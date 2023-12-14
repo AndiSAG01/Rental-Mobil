@@ -1,106 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>CarRental</title>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ROYAL CARS - Car Rental HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-    <link rel="stylesheet" href="/assets/fonts/icomoon/style.css">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="/assets/css/aos.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-  </head>
+    <!-- Libraries Stylesheet -->
+    <link href="/assets/cs1/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/cs1/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/assets/cs1/css/bootstrap.min.css" rel="stylesheet">
 
-  <body>
+    <!-- Template Stylesheet -->
+    <link href="/assets/cs1/css/style.css" rel="stylesheet">
+</head>
 
-
-    <div class="site-wrap" id="home-section">
-
-      <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-          <div class="site-mobile-menu-close mt-3">
-            <span class="icon-close2 js-menu-toggle"></span>
-          </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-      </div>
-
-
-
-      <header class="site-navbar site-navbar-target" style="background-color: #AD9F8A" role="banner">
-
-        <div class="container">
-          <div class="row align-items-center position-relative">
-
-            <div class="col-3">
-              <div class="site-logo">
-                <a href="index.html"><strong>CV. Chandra Putry</strong></a>
-              </div>
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block">
+        <div class="row">
+            <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>081366553200</a>
+                    <span class="text-body">|</span>
+                    <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>Rentcarjambi@gmail.com</a>
+                </div>
             </div>
-
-            <div class="col-9  text-right">
-
-              <span class="d-inline-block d-lg-none"><a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-black"></span></a></span>
-
-              <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="/" class="nav-link"><Strong>Home</Strong></a></li>
-                  <li><a href="{{ route('listing') }}" class="nav-link"><strong>Daftar Mobil</strong></a></li>
-                  <li><a href="{{ route ('frontend.transaksi') }}" class="nav-link"><strong>Transaksi</strong></a></li>
-                  @auth
-                  <li>
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <button type="submit" class="btn"><strong>Logout</strong></button>
-                    </form>
-                  </li>
-                  @else
-                  <li><a href="{{ Route('login') }}" class="nav-link"><strong>Login</strong></a></li>
-                  @endauth
-                </ul>
-              </nav>
-            </div>
-
-
-          </div>
         </div>
-
-      </header>
-
-
-      @yield('content')
-
-
-
     </div>
+    <!-- Topbar End -->
 
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/assets/js/popper.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/owl.carousel.min.js"></script>
-    <script src="/assets/js/jquery.sticky.js"></script>
-    <script src="/assets/js/jquery.waypoints.min.js"></script>
-    <script src="/assets/js/jquery.animateNumber.min.js"></script>
-    <script src="/assets/js/jquery.fancybox.min.js"></script>
-    <script src="/assets/js/jquery.easing.1.3.js"></script>
-    <script src="/assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="/assets/js/aos.js"></script>
 
-    <script src="/assets/js/main.js"></script>
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="position-relative px-lg-5" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="text-uppercase text-primary mb-1">HF Rent Car</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="{{ route('homepage')}}" class="nav-item nav-link">Beranda</a>
+                        <div class="nav-item">
+                            <a href=" {{ route ('listing') }}" class="nav-link">Cars</a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="{{ route ('frontend.transaksi')}}" class="nav-link">Transaksi</a>
+                        </div>
+                        @auth
+                        <li class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                          <form action="{{ route('logout') }}" method="post" >
+                              @csrf
+                              <button type="submit"><strong>Logout</strong></button>
+                          </form>
+                        </li>
+                        @else
+                        <li><a href="{{ Route('login') }}" class="nav-link"><strong>Login</strong></a></li>
+                        @endauth
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
 
-  </body>
+
+    <br>
+
+
+    <!-- About Start -->
+    @yield('content')
+    <!-- About End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/cs1/easing/easing.min.js"></script>
+    <script src="/assets/cs1/waypoints/waypoints.min.js"></script>
+    <script src="/assets/cs1/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/assets/cs1/tempusdominus/js/moment.min.js"></script>
+    <script src="/assets/cs1/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/assets/cs1/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/assets/cs1/js/main.js"></script>
+</body>
 
 </html>
-

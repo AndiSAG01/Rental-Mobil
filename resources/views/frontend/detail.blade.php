@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <!-- Section-->
+    {{-- <!-- Section-->
     <div class="site-section"style="background-image: url('assets/images/hero_1_a.jpg')">
         <div class="">
             <div class="container px-4 px-lg-10 mt-5">
@@ -85,26 +85,6 @@
                                                 </div>
                                             </div>
                                             <ul class="list-unstyled list-style-group">
-                                                <li class="border-bottom p-2 d-flex justify-content-between">
-                                                    <span>Bahan Bakar</span>
-                                                    <span style="font-weight: 600">{{ $data->bahan_bakar }}</span>
-                                                </li>
-                                                <li class="border-bottom p-2 d-flex justify-content-between">
-                                                    <span>Jumlah Kursi</span>
-                                                    <span style="font-weight: 600">{{ $data->jumlah_kursi }}</span>
-                                                </li>
-                                                <li class="border-bottom p-2 d-flex justify-content-between">
-                                                    <span>Transmisi</span>
-                                                    <span style="font-weight: 600">{{ $data->transmisi }}</span>
-                                                </li>
-                                                <li class="border-bottom p-2 d-flex justify-content-between">
-                                                    <span>Denda</span>
-                                                    <span style="font-weight: 600">{{ $data->denda }}</span>
-                                                </li>
-                                                <li class="border-bottom p-2 d-flex justify-content-between">
-                                                    <span>Tahun Produksi</span>
-                                                    <span style="font-weight: 600">{{ $data->tahun_mobil }}</span>
-                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -129,6 +109,102 @@
             </div>
         </div>
     </div>
-                    </section>
+                    </section> --}}
+                    <div class="container-fluid  pt-5 bg-dark">
+                        <div class="container pt-5">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mb-5 card">
+                                    <h1 class="display-4 text-center text-uppercase mb-5">{{$data->nama_mobil}}</h1>
+                                    <div class="row mx-n2 mb-3">
+                                        <div class="badge badge-custom bg-{{ $data->status == 'Tersedia' ? 'success' : 'danger' }}
+                                            text-white position-absolute"
+                                            style="top: 0; right: 0">
+                                            {{ $data->status}}
+                                        </div>
+
+                                        <div class="col-md-3" >
+                                            <img class="card-img-top" style="width: auto" src="{{ Storage::url($data->gambar) }}" alt="images-fluid" />
+                                        </div>
+                                    </div>
+                                    <h2>Deskripsi</h2>
+                                    <p>{{$data->deskripsi}}</p>
+                                    <hr>
+                                    <div class="row pt-2 justify-content-center mb-3">
+                                        <li class="fa fa-car text-primary mr-2">
+                                            @if ($data->p3k)
+                                                <i class="ri-checkbox-circle-line"></i>
+                                            @else
+                                                <i class="ri-close-circle-line text-secondary"></i>
+                                            @endif
+                                            <span>P3K :<h6 class="badge bg-dark text-white">
+                                                    @if ($data->p3k == true)
+                                                        Tersedia
+                                                    @else
+                                                        Tidak Tersedia
+                                                    @endif
+                                                </h6></span>
+                                        </li>
+                                        <li class="fa fa-cogs text-primary mr-2">
+                                            <i class="ri-close-circle-line text-secondary"></i>
+                                            <span>CHARGER : <h6 class="badge bg-dark text-white">
+                                                    {{ $data->charger == true ? 'Tersedia' : 'Tidak tersedia' }}
+                                                </h6></span>
+                                        </li>
+                                        <li class="fa fa-road text-primary mr-2">
+                                            <i class="ri-close-circle-line text-secondary"></i>
+                                            <span>AUDIO : <h6 class="badge bg-dark text-white">
+                                                    {{ $data->audio == true ? 'Tersedia' : 'Tidak tersedia' }}
+                                                </h6>
+                                            </span>
+                                        </li>
+                                        <li class="fa fa-road text-primary mr-2">
+                                            <i class="ri-checkbox-circle-line"></i>
+                                            <span>AC :<h6 class="badge bg-dark text-white">
+                                                    {{ $data->ac == true ? 'Tersedia' : 'Tidak tersedia' }}</h6>
+                                            </span>
+                                        </li>
+                                    </div>
+                                    <hr>
+                                    <div class="row pt-2 ">
+                                        <div class="col-md-3 col-6 mb-2">
+                                            <i class="fa fa-car text-primary mr-2"> Sewa</i>
+                                            <span>{{$data->harga_sewa}}</span>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-2">
+                                            <i class="fa fa-car text-primary mr-2"> Tahun Produksi : </i>
+                                            <span>{{$data->tahun_mobil}}</span>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-2">
+                                            <i class="fa fa-cogs text-primary mr-2"></i>
+                                            <span>{{$data->transmisi}}</span>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-2">
+                                            <i class="fa fa-road text-primary mr-2">BB</i>
+                                            <span>{{$data->bahan_bakar}}</span>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-2">
+                                            <i class="fa fa-eye text-primary mr-2"> Jumlah Kursi</i>
+                                            <span>{{$data->jumlah_kursi}}</span>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-2">
+                                            <i class="fa fa-car text-primary mr-2"> Denda</i>
+                                            <span>{{$data->denda}}</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="card-footer border-top-0 bg-transparent">
+                                        <div class="text-center">
+                                            @if ($data ->status == 'Tersedia')
+                                            <a class="btn d-flex align-items-center justify-content-center btn-primary mt-auto"
+                                                href="{{ route('sewa', $data->id) }}" style="column-gap: 0.4rem">Sewa
+                                                Mobil</i>
+                                            </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
                     @include('footer')
                 @endsection

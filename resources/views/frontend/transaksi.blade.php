@@ -45,7 +45,7 @@
                                             <img src="{{ Storage::url($ts->image) }}" class="img-fluid rounded w-25"
                                                 alt="">
                                         @else
-                                            <span class="badge badge-primary">Belum Bayar</span>
+                                            <span class="badge badge-danger">Belum Bayar</span>
                                         @endif
                                     </td>
                                     <td>
@@ -60,7 +60,7 @@
                                                     <span class="text-white p-3 badge bg-danger">Di Tolak</span>
                                         @elseif(!$ts->status)
                                             <a href="{{ Route('transaksi.show', $ts->id) }}"
-                                                class="btn btn-sm btn-warning">Upload Pembayaran</a>
+                                                class="btn btn-sm btn-warning mb-2">Upload Pembayaran</a>
                                             <form onclick="return confirm('anda yakin data dihapus?');" class="d-inline"
                                                 action="{{ route('transaksi.destroy',$ts->id) }}" method="post">
                                                 @csrf

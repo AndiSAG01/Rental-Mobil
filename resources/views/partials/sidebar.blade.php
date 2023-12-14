@@ -1,76 +1,65 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">CV.Chandra Putry </div>
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('dashboard.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('cars.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Daftar Mobil</span></a>
-    </li>
-
-    <hr class="sidebar-divider">
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('costumer.index') }}">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Daftar Costumer</span></a>
-    </li>
-
-    <hr class="sidebar-divider">
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.transaksi.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Daftar Transaksi</span></a>
-    </li>
-
-    <hr class="sidebar-divider">
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.cars.laporancars') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Laporan Daftar Mobil</span></a>
-    </li>
-
-    <hr class="sidebar-divider">
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ Route('report.costumers') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Laporan Data Costumer</span></a>
-    </li>
-
-    <hr class="sidebar-divider">
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ Route('report.Transaction') }}">
-            <i class="fas fa-fw fa-clipboard-list"></i>
-            <span>Laporan Data Transaksi</span></a>
-    </li>
-
-    <hr class="sidebar-divider">
-    <li  class="nav-item active">
-        <form action="{{ route('logout') }}" method="post">
-            @csrf
-            <i class="fas fa-fw"></i>
-            <button   type="submit" class="btn btn-primary">Logout</button>
-        </form>
+<nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+    <ul id="sidebarnav">
+      <li class="nav-small-cap">
+        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+        <span class="hide-menu">HF Rent Car Jambi</span>
       </li>
-
-
-
-
-</ul>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('dashboard.index') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-layout-dashboard"></i>
+          </span>
+          <span class="hide-menu">Dashboard</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('cars.index') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-basket"></i>
+          </span>
+          <span class="hide-menu">DATA MOBIL</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('costumer.index') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-user-plus"></i>
+          </span>
+          <span class="hide-menu">DATA COSTUMER</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('admin.transaksi.index') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-shopping-cart"></i>
+          </span>
+          <span class="hide-menu">DATA TRANSAKSI</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('admin.cars.laporancars') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-layout"></i>
+          </span>
+          <span class="hide-menu">LAPORAN MOBIL</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ Route('report.costumers') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-user-circle"></i>
+          </span>
+          <span class="hide-menu">LAPORAN COSTUMER</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ Route('report.Transaction') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-currency-dollar"></i>
+          </span>
+          <span class="hide-menu">LAPORAN TRANSAKSI</span>
+        </a>
+      </li>
+    </ul>
+  </nav>

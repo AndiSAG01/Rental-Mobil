@@ -11,115 +11,119 @@
     <br>
     <br>
     <div class="row">
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Total Mobil</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalCars }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-taxi fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <a href="{{ route('cars.index') }}" class="card bg-success text-white w-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <i class="ti ti-basket display-6"></i>
+                <div class="ms-auto">
+                  <i class="ti ti-arrow-right fs-8"></i>
                 </div>
+              </div>
+              <div class="mt-4">
+                <h4 class="card-title mb-1 text-white">TOTAL MOBIL</h4>
+                <h6 class="card-text fw-normal text-white-50">
+                  {{$totalCars}}
+                </h6>
+              </div>
             </div>
+          </a>
         </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Transaksi</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totaltransaction }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <a href="{{ route('admin.transaksi.index') }}" class="card bg-warning text-white w-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <i class="ti ti-shopping-cart display-6"></i>
+                <div class="ms-auto">
+                  <i class="ti ti-arrow-right fs-8"></i>
                 </div>
+              </div>
+              <div class="mt-4">
+                <h4 class="card-title mb-1 text-white">TRANSAKSI</h4>
+                <h6 class="card-text fw-normal text-white-50">
+                  {{$totaltransaction}}
+                </h6>
+              </div>
             </div>
+          </a>
         </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Customer
-                            </div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalcustomer }}</div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <a href="{{ route('costumer.index') }}" class="card bg-danger text-white w-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <i class="ti ti-user-plus display-6"></i>
+                <div class="ms-auto">
+                  <i class="ti ti-arrow-right fs-8"></i>
                 </div>
+              </div>
+              <div class="mt-4">
+                <h4 class="card-title mb-1 text-white">
+                    TOTAL COSTUMER
+                </h4>
+                <h6 class="card-text fw-normal text-white-50">
+                  {{$totalcustomer}}
+                </h6>
+              </div>
             </div>
+          </a>
         </div>
-
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Laporan Daftar Mobil</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalCars }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-taxi fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <a href="{{ route('admin.cars.laporancars') }}" class="card bg-primary text-white w-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <i class="ti ti-layout display-6"></i>
+                <div class="ms-auto">
+                  <i class="ti ti-arrow-right fs-8"></i>
                 </div>
+              </div>
+              <div class="mt-4">
+                <h4 class="card-title mb-1 text-white">
+                  LAPORAN DATA MOBIL
+                </h4>
+                <h6 class="card-text fw-normal text-white-50">
+                  {{$totalCars}}
+                </h6>
+              </div>
             </div>
+          </a>
         </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                Laporan data Costumer</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalcustomer }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-table fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <a href="{{ Route('report.Transaction') }}" class="card bg-info text-white w-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <i class="ti ti-currency-dollar display-6"></i>
+                <div class="ms-auto">
+                  <i class="ti ti-arrow-right fs-8"></i>
                 </div>
+              </div>
+              <div class="mt-4">
+                <h4 class="card-title mb-1 text-white">LAPORAN TRANSAKSI</h4>
+                <h6 class="card-text fw-normal text-white-50">
+                  {{$totaltransaction}}
+                </h6>
+              </div>
             </div>
+          </a>
         </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Laporan Data Transaksi</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totaltransaction }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <a href="{{ Route('report.costumers') }}" class="card bg-secondary text-white w-100 card-hover">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <i class="ti ti-user-circle display-6"></i>
+                <div class="ms-auto">
+                  <i class="ti ti-arrow-right fs-8"></i>
                 </div>
+              </div>
+              <div class="mt-4">
+                <h4 class="card-title mb-1 text-white">
+                  TOTAL COSTUMER
+                </h4>
+                <h6 class="card-text fw-normal text-white-50">
+                  {{$totalcustomer}}
+                </h6>
+              </div>
             </div>
+          </a>
         </div>
-    </div>
+      </div>
 @endsection

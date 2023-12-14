@@ -2,11 +2,13 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-    Form Tambah Data
+<div class="card" style="background-color: rgba(118, 118, 245, 0.387)">
+    <div class="card-header text-white" style="background-color: blue">
+        <b>
+            Form Tambah Data
+        </b>
     </div>
-    <div class="card-body">
+    <div class="card-body text-dark">
         <form action="{{ route('cars.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -83,7 +85,7 @@
                     <option value="0">Tidak Tersedia</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label for="gambar">Gambar</label>
                 <input type="file" class="form-control" name="gambar">
             </div>

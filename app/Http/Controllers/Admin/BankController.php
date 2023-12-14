@@ -70,29 +70,7 @@ class BankController extends Controller
         ]);
     }
 
-    // public function updateImage(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'image' => 'required|image'
-    //     ]);
-    //     $bank = Bank::findOrFail($id);
-    //     if ($request->image) {
-    //         unlink('storage/' . $bank->image);
-    //         $gambar = $request->file('image')->store('assets/bank', 'public');
-
-    //         $bank->update(['image' => $gambar]);
-    //     }
-
-    //     return redirect()->back()->with([
-    //         'message' => 'Gambar Berhasil Di Edit',
-    //         'alert-type' => 'info'
-    //     ]);
-    // }
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
+  
     public function destroy($id)
     {
         // Delete related transactions

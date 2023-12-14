@@ -74,6 +74,7 @@ Route::middleware(['admin:1'])->group(function () {
     Route::get('/admin/transaksi/{id}', [TransaksiAdmController::class, 'end'])->name('admin.transaksi.selesai');
     Route::put('/admin/transaksi/{id}/reject', [TransaksiAdmController::class, 'reject'])->name('admin.transaksi.reject');
     Route::get('transaction/report', [HomeController::class, 'transaction'])->name('report.Transaction');
+    Route::delete('/admin/transaksi/{id}',[TransaksiAdmController::class,'destroy'])->name('admin.delete');
 
     //bank
     Route::get('/admin/bank', [BankController::class,'index' ])->name('admin.bank');

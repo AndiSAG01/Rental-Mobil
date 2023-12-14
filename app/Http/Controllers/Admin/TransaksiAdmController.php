@@ -61,5 +61,18 @@ class TransaksiAdmController extends Controller
              ['message' => 'Sudah Terkonfirmasi','alert-type' => 'success']
          );    }
 
+
+         public function destroy($id)
+         {
+
+        $transaksi = Transaksi::where('id', $id)->delete();
+
+        return redirect()->back()->with([
+            'transaksi',
+            'message' => 'Data Berhasil Dihapus',
+            'alert-type' => 'danger'
+        ]);
+         }
     }
+
 

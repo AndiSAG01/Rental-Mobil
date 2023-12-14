@@ -20,6 +20,7 @@ class DashboardController extends Controller
             'totalCars' => Car::count() ,
             'totaltransaction' => Transaksi::count(),
             'totalcustomer' => User::where('IsAdmin','0')->count(),
+            
         ]);
     }
 
