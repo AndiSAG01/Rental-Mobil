@@ -1,10 +1,7 @@
 
 <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
     <ul id="sidebarnav">
-      <li class="nav-small-cap">
-        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-        <span class="hide-menu">HF Rent Car Jambi</span>
-      </li>
+      <hr>
       <li class="sidebar-item">
         <a class="sidebar-link" href="{{ route('dashboard.index') }}" aria-expanded="false">
           <span>

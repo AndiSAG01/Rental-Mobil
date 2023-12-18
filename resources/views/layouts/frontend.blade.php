@@ -52,6 +52,7 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-uppercase text-primary mb-1">HF Rent Car</h1>
                 </a>
+                <img src="/assets/images/logos/logo.jpeg" alt="asdas" width="200px">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>

@@ -28,6 +28,11 @@
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
+        <center>
+          <img src="/assets/images/logos/logo.jpeg" alt="" width="200px">
+
+        </center>
+        
         <!-- Sidebar navigation-->
        @include('partials.sidebar')
         <!-- End Sidebar navigation -->
