@@ -62,11 +62,14 @@ Route::middleware(['admin:1'])->group(function () {
     Route::get('costumer/report', [HomeController::class, 'costumer'])->name('report.costumers');
 
     //car
-    Route::get('/admin/cars', [CarController::class, 'index'])->name('admin.cars.index');
-    Route::resource('cars', CarController::class,);
+       // Route::resource('cars', CarController::class,);
+    Route::get('/admin/cars', [CarController::class, 'index'])->name('cars.index');
+    Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+    Route::post('/cars/store', [CarController::class,'store'])->name('cars.store');
+    Route::get('/cars/edit/{id}', [CarController::class,'edit'])->name('cars.edit');
     Route::put('cars/update-image/{id}', [CarController::class, 'updateImage'])->name('cars.updateImage');
     Route::get('/admin/cars/laporan', [CarController::class, 'laporan'])->name('admin.cars.laporancars');
-    Route::delete('/cars/{id}', [CarController::class, 'destroy']);
+    Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
 
 
     //transksi

@@ -18,7 +18,8 @@ class  CarController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
+        $cars = Car::orderBy("created_at","desc")->paginate(10);
         $cars = Car::latest()->get();
         return view('admin.cars.index', compact('cars'));
     }
@@ -42,17 +43,9 @@ class  CarController extends Controller
             Car::create($request->except('gambar') + ['gambar' => $gambar, 'slug' => $slug]);
         }
 
-        return redirect()->route('admin.cars.index')->with(
+        return redirect()->route('cars.index')->with(
             ['message' => 'Data Sukses Dibuat', 'alert-type' => 'success']
         );
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -60,6 +53,7 @@ class  CarController extends Controller
      */
     public function edit(Car $car)
     {
+
         return view('admin.cars.edit', compact('car'));
     }
 

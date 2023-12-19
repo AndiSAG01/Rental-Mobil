@@ -25,10 +25,10 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $car->nama_mobil }}</td>
-                            <td>{{ $car->plat }}</td>
                             <td>
                                 <img src="{{  Storage::url($car->gambar) }}" width="200">
                             </td>
+                            <td>{{ $car->plat }}</td>
                             <td>@currency($car->harga_sewa)</td>
                             <td>{{ $car->status }}</td>
                             <td>
