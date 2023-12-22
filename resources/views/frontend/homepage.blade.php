@@ -77,7 +77,7 @@
                     <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
                         <i class="fa fa-2x fa-map-marker-alt text-secondary"></i>
                     </div>
-                    <h4 class="text-uppercase m-0">Beralamat Selincah</h4>
+                    <h4 class="text-uppercase m-0">Beralamat Budiman</h4>
                 </div>
             </div>
         </div>

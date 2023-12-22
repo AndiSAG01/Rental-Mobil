@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Bank;
 use App\Models\Car;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -11,6 +12,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -42,12 +44,12 @@ class DatabaseSeeder extends Seeder
             'isAdmin' => 1,
         ]);
         $slug = Str::slug('Toyota alpart');
-        collect([
+       $cars = [
             [
                 'nama_mobil' => 'Toyota Kijang Innova',
                 'harga_sewa' => 300000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_kijang.jpeg',
+                'gambar' => 'cars/toyota_kijang.jpeg',
                 'plat' => 'BH 1228 MH',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -70,7 +72,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Toyota Avanza G 1.5',
                 'harga_sewa' => 250000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_avanza5.jpeg',
+                'gambar' => 'cars/toyota_avanza5.jpeg',
                 'plat' => 'BH 1838 YF',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -93,7 +95,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Toyota Avanza G 1.3',
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_avanza4.jpeg',
+                'gambar' => 'cars/toyota_avanza4.jpeg',
                 'plat' => 'BH 1984 NX',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -116,7 +118,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Toyota Avanza G 1.5',
                 'harga_sewa' => 250000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_avanza3.jpeg',
+                'gambar' => 'cars/toyota_avanza3.jpeg',
                 'plat' => 'BH 1375 YE',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -139,7 +141,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Toyota Avanza E 1.3',
                 'harga_sewa' => 300000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_avanza2.jpeg',
+                'gambar' => 'cars/toyota_avanza2.jpeg',
                 'plat' => 'B 1175 NZF',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -162,7 +164,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Toyota Avanza E 1.3',
                 'harga_sewa' => 300000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_avanza.jpeg',
+                'gambar' => 'cars/toyota_avanza.jpeg',
                 'plat' => 'BH 1467 NV',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -185,7 +187,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Toyota Avanza Veloz 1.3',
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_avanza_veloz2.jpeg',
+                'gambar' => 'cars/toyota_avanza_veloz2.jpeg',
                 'plat' => 'B 1601 EZB',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -208,7 +210,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Toyota Avanza Veloz 1.5L',
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/toyota_avanza_veloz.jpeg',
+                'gambar' => 'cars/toyota_avanza_veloz.jpeg',
                 'plat' => 'B 2956 BZO',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -231,7 +233,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Honda Mobilio',
                 'harga_sewa' => 150000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/honda_mobilio.jpeg',
+                'gambar' => 'cars/honda_mobilio.jpeg',
                 'plat' => 'BH 1266 YF',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 4,  // Remove quotes to insert as integer
@@ -251,7 +253,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Daihatsu Xenia R',
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/daihatsu_xenia4.jpeg',
+                'gambar' => 'cars/daihatsu_xenia4.jpeg',
                 'plat' => 'BH 1255 NA',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -271,7 +273,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Daihatsu Xenia R 1.3',
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/daihatsu_xenia3.jpeg',
+                'gambar' => 'cars/daihatsu_xenia3.jpeg',
                 'plat' => 'BH 1988 NA',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -291,7 +293,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Daihatsu Xenia R',
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/daihatsu_xenia2.jpeg',
+                'gambar' => 'cars/daihatsu_xenia2.jpeg',
                 'plat' => 'BH 1347 GG',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -311,7 +313,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Daihatsu Xenia 1.3 X',
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/daihatsu_xenia.jpeg',
+                'gambar' => 'cars/daihatsu_xenia.jpeg',
                 'plat' => 'BH 1371 BF',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 6,  // Remove quotes to insert as integer
@@ -331,7 +333,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Daihatsu Sigra',
                 'harga_sewa' => 150000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/daihatsu_sigra.jpeg',
+                'gambar' => 'cars/daihatsu_sigra.jpeg',
                 'plat' => 'BH 1686 WF',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 4,  // Remove quotes to insert as integer
@@ -351,7 +353,7 @@ class DatabaseSeeder extends Seeder
                 'nama_mobil' => 'Brio',
                 'harga_sewa' => 150000,
                 'slug' => $slug,  // Remove quotes to insert as integer
-                'gambar' => 'assets/cars/brio.jpeg',
+                'gambar' => 'cars/brio.jpeg',
                 'plat' => 'BH 1131 NR',
                 'bahan_bakar' => 'Bensin',
                 'jumlah_kursi' => 4,  // Remove quotes to insert as integer
@@ -367,25 +369,63 @@ class DatabaseSeeder extends Seeder
                 'audio' => 1,  // Assuming 'audio' is boolean or integer
                 'ac' => 1,  // Assuming 'ac' is boolean or integer
             ],
-        ])->each(function ($cars) {
-            DB::table('cars')->insert($cars);
-        });
+        ];
 
-        collect([
+        foreach($cars as $product)
+        {
+            // Upload gambar dari folder public ke folder storage
+            $imagePath = $product['gambar'];
+            $storagePath = 'imageproducts/' . $product['gambar'];
+            Storage::disk('public')->put($storagePath, file_get_contents(public_path($imagePath)));
+
+            // Buat record produk di database
+            Car::create([
+                'nama_mobil' => $product['nama_mobil'],
+                'harga_sewa' => $product['harga_sewa'],
+                'slug' => $slug,
+                'gambar' => $storagePath,
+                'plat' => $product['plat'],
+                'bahan_bakar' => $product['bahan_bakar'],
+                'jumlah_kursi' => $product['jumlah_kursi'],
+                'transmisi' => $product['transmisi'],
+                'status' => $product['status'],
+                'deskripsi' => $product['deskripsi'],
+                'denda' => $product['denda'],
+                'tahun_mobil' => $product['tahun_mobil'],
+                'p3k' => $product['p3k'],
+                'charger' => $product['charger'],
+                'audio' => $product['audio'],
+                'ac' => $product['ac'],
+            ]);
+        }
+
+        $bank = [
             [
                 'no_rekening' => '7811378892',
-                'image' => 'assets/bank/bni.png',
+                'image' => 'bank/bni.png',
             ],
             [
                 'no_rekening' => '000101011822534',
-                'image' => 'assets/bank/bri.png',
+                'image' => 'bank/bri.png',
             ],
             [
                 'no_rekening' => '5220304312',
-                'image' => 'assets/bank/bca.png',
+                'image' => 'bank/bca.png',
             ],
-        ])->each(function($bank){
-            DB::table('bank')->insert($bank);
-        });
+        ];
+        
+        foreach($bank as $product)
+        {
+            // Upload gambar dari folder public ke folder storage
+            $imagePath = $product['image'];
+            $storagePath = 'imageproducts/' . $product['image'];
+            Storage::disk('public')->put($storagePath, file_get_contents(public_path($imagePath)));
+
+            // Buat record produk di database
+            Bank::create([
+                'no_rekening' => $product['no_rekening'],
+                'image' => $storagePath,
+            ]);
+        }
     }
 }
