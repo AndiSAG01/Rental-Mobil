@@ -18,7 +18,7 @@ Laporan Transaksi {{ $year }}
             <th>Mobil</th>
             <th>Tanggal Rental</th>
             <th>Tanggal Kembali</th>
-            <th>Total Denda</th>
+            <th>Total Harga sewa</th>
             <th>Status</th>
             <th>Tanggal Selesai Sewa</th>
         </tr>
@@ -29,17 +29,26 @@ Laporan Transaksi {{ $year }}
                 <td>{{ ++$index }}</td>
                 <td>{{ $ts->user->name }}</td>
                 <td>{{ $ts->car->nama_mobil }}</td>
-                <td>{{ Carbon\Carbon::parse($ts->tanggal_rental)->format('d M Y') }}</td>
-                <td>{{ Carbon\Carbon::parse($ts->tanggal_kembali)->format('d M Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($ts->tanggal_rental)->isoFormat('DD-MM-YYYY HH:mm') }}
+                </td>
+                <td>{{ \Carbon\Carbon::parse($ts->tanggal_kembali)->isoFormat('DD-MM-YYYY HH:mm') }}
+                </td>
                 <td>
                     @php
-                        $selisihHari = Carbon\Carbon::today()->diffInDays($ts->tanggal_kembali);
-                    @endphp
-                    @if (now() >= $ts->tanggal_kembali)
-                        {{ $selisihHari * $ts->car->denda }}
-                    @else
-                        Tidak Ada Denda
-                    @endif
+                            $date = \Carbon\Carbon::parse($ts->tanggal_rental)->subDays(1);
+
+                            $diffDate = $date->diffInDays(\Carbon\Carbon::parse($ts->tanggal_kembali));
+
+                            $driver = $diffDate * 200000;
+
+                            $selisihHari = Carbon\Carbon::today()->diffInDays($ts->tanggal_kembali);
+                            $denda = $selisihHari * $ts->car->denda;
+                        @endphp
+                            @if ($ts->driver == 1)
+                                @currency($diffDate * $ts->car->harga_sewa + $driver)
+                            @else
+                                @currency($diffDate * $ts->car->harga_sewa + $denda )
+                            @endif
                 </td>
                 <td>
                     @if ($ts->status == 'selesai')

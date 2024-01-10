@@ -18,9 +18,9 @@ class CreateTransaksiTable extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('car_id')->constrained('cars');
             $table->boolean('driver');
-            $table->date('tanggal_rental');
-            $table->date('tanggal_kembali');
-            $table->date('tanggal_selesai')-> nullable();
+            $table->datetime('tanggal_rental');
+            $table->datetime('tanggal_kembali');
+            $table->datetime('tanggal_selesai')-> nullable();
             $table->string('status')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

@@ -34,29 +34,34 @@
                             <img src="{{ Storage::url($ts->image) }}"  width="200px" height="300px"
                                 alt="">
                         @else
-                            <span class="badge badge-danger">Belum Bayar</span>
+                            <span class="btn btn-danger btn-block">Belum Bayar</span>
                         @endif
                         </td>
-                        <td>{{ Carbon\Carbon::parse($ts->tanggal_rental)->format('d M Y') }}</td>
-                        <td>{{ Carbon\Carbon::parse($ts->tanggal_kembali)->format('d M Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($ts->tanggal_rental)->isoFormat('DD-MM-YYYY HH:mm') }}
+                        </td>
+                        <td>{{ \Carbon\Carbon::parse($ts->tanggal_kembali)->isoFormat('DD-MM-YYYY HH:mm') }}
+                        </td>
                         <td> @php
-                            $date = \Carbon\Carbon::parse($ts->tanggal_rental)->diffInDays(\Carbon\Carbon::parse($ts->tanggal_kembali));
-                            $driver = $date * 200000;
-                            @endphp
+                            $date = \Carbon\Carbon::parse($ts->tanggal_rental)->subDays(1);
+
+                            $diffDate = $date->diffInDays(\Carbon\Carbon::parse($ts->tanggal_kembali));
+
+                            $driver = $diffDate * 200000;
+                        @endphp
                             @if ($ts->driver == 1)
-                            @currency($date * $ts->car->harga_sewa + $driver)
+                                @currency($diffDate * $ts->car->harga_sewa + $driver)
                             @else
-                            @currency($date * $ts->car->harga_sewa)
+                                @currency($diffDate * $ts->car->harga_sewa)
                             @endif
                         </td>
                         <td>
                             @php
-                            $selisihHari = Carbon\Carbon::today()->diffInDays($ts->tanggal_kembali);
+                            $selisihHari = \Carbon\Carbon::today()->diffInDays($ts->tanggal_kembali);
                             @endphp
                             @if (now() >= $ts->tanggal_kembali)
                             @currency($selisihHari * $ts->car->denda)
                             @else
-                            Tidak Ada Denda
+                            <a href="#" class="btn btn-info btn-block" >Tidak Ada Denda</a>
                             @endif
                         </td>
                         <td>
@@ -79,13 +84,13 @@
                         <td>
                             @if ($ts->status == 'selesai')
                             <a class="btn btn-success mb-1" href="#" role="button">Selesai</a>
-                            @foreach($transaksi as $item)
-                            <form action="{{ route('admin.delete', $item->id) }}" method="post">
+                            
+                            <form action="{{ route('admin.delete', $ts->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
-                            @endforeach
+                            
                             @elseif($ts->status == 'telah di sewa')
                             <a href="{{ Route('admin.transaksi.selesai', $ts->id) }}" class="btn btn-success">Selesai</a>
                             @elseif($ts->status == 'menunggu konfirmasi')
@@ -104,13 +109,13 @@
                                 <button type="submit" class="btn btn-danger">Tolak</button>
                             </form>
                             @elseif($ts->status == 'sewa anda di tolak')
-                            @foreach($transaksi as $item)
-                            <form action="{{ route('admin.delete', $item->id) }}" method="post">
+                          
+                            <form action="{{ route('admin.delete', $ts->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
-                            @endforeach
+                           
                             @endif
                         </td>
                     </tr>

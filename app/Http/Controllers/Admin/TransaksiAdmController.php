@@ -18,7 +18,6 @@ class TransaksiAdmController extends Controller
 
         $transaksi = Transaksi::get();
         return view('admin.transaksi.index', compact('transaksi'));
-
     }
 
 
@@ -28,42 +27,43 @@ class TransaksiAdmController extends Controller
         Car::whereId($transaksi)->update([
             'status' => 'Tidak Tersedia'
         ]);
-        Transaksi::where('id',$id)->update([
-           'status' => 'telah di sewa'
+        Transaksi::where('id', $id)->update([
+            'status' => 'telah di sewa'
         ]);
 
         return redirect()->back()->with(
-            ['message' => 'Sudah Terkonfirmasi','alert-type' => 'success']
+            ['message' => 'Sudah Terkonfirmasi', 'alert-type' => 'success']
         );
     }
 
-        public function end($id)
-        {
+    public function end($id)
+    {
 
         $transaksi = Transaksi::whereId($id)->first()->car->id;
         Car::whereId($transaksi)->update([
             'status' => 'Tersedia'
         ]);
-            Transaksi::whereId($id)->update([
-                'status' => 'selesai',
-                'tanggal_selesai' => now(),
-            ]);
+        Transaksi::whereId($id)->update([
+            'status' => 'selesai',
+            'tanggal_selesai' => now(),
+        ]);
 
-            return back()->with(['message' => 'Transaksi Selesai 👍','alert-type'=> 'success'] );
-        }
+        return back()->with(['message' => 'Transaksi Selesai 👍', 'alert-type' => 'success']);
+    }
 
     public function reject($id)
     {
-        Transaksi::where('id',$id)->update([
+        Transaksi::where('id', $id)->update([
             'status' => 'sewa anda di tolak'
-         ]);
-         return redirect()->back()->with(
-             ['message' => 'Sudah Terkonfirmasi','alert-type' => 'success']
-         );    }
+        ]);
+        return redirect()->back()->with(
+            ['message' => 'Sudah Terkonfirmasi', 'alert-type' => 'success']
+        );
+    }
 
 
-         public function destroy($id)
-         {
+    public function destroy($id)
+    {
 
         $transaksi = Transaksi::where('id', $id)->delete();
 
@@ -72,7 +72,5 @@ class TransaksiAdmController extends Controller
             'message' => 'Data Berhasil Dihapus',
             'alert-type' => 'danger'
         ]);
-         }
     }
-
-
+}

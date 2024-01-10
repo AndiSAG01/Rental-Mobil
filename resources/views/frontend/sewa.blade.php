@@ -57,7 +57,8 @@
             <input type="hidden" name="user_id" value="{{ Auth()->user()->id }}">
             <input type="hidden" name="car_id" value="{{ $car->id }}">
             <div class="form-group">
-                <label for="tanggal_sewa">Memakai Driver</label>
+                <label for="tanggal_sewa">Memakai Driver :</label>
+                <p><b>Dikenakan Biaya Rp.200,000/hari</b></p>
                 <select name="driver" id="transmisi" class="form-control">
                     <option value="1">YA</option>
                     <option value="0">TIDAK</option>
@@ -65,11 +66,11 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_sewa">Tanggal Sewa:</label>
-                <input type="date" name="tanggal_rental" id="tanggal_sewa" class="form-control" required>
+                <input type="datetime-local" name="tanggal_rental" id="tanggal_sewa" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="tanggal_kembali">Tanggal kembali:</label>
-                <input type="date" name="tanggal_kembali" id="tanggal_kembali" class="form-control" required>
+                <input type="datetime-local" name="tanggal_kembali" id="tanggal_kembali" class="form-control" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Sewa</button>
