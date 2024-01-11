@@ -6,7 +6,7 @@ Rental Mobil adalah aplikasi web yang dibuat dengan menggunakan framework Larave
 
 ### Fitur
 
-Beberapa fitur yang terdapat pada E-Shop antara lain:
+Beberapa fitur yang terdapat pada Rental Mobil antara lain:
 
 -   Authentication (login, register, dan logout)
 -   CRUD cars
