@@ -32,4 +32,4 @@ Anda dapat melakukan kontribusi pada repository ini dengan melakukan fork dan pu
 
 ### Lisensi
 
-E-Shop dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+Rental Mobil dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
