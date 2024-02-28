@@ -31,22 +31,29 @@
         </div>
         <div class="col-md-4 d-flex align-items-stretch">
           <a href="{{ route('admin.transaksi.index') }}" class="card bg-warning text-white w-100 card-hover">
-            <div class="card-body">
-              <div class="d-flex align-items-center">
-                <i class="ti ti-shopping-cart display-6"></i>
-                <div class="ms-auto">
-                  <i class="ti ti-arrow-right fs-8"></i>
-                </div>
+              <div class="card-body">
+                  <div class="d-flex align-items-center">
+                      <i class="ti ti-shopping-cart display-6"></i>
+                      <div class="ms-auto">
+                          @php
+                              $unconfirmedOrders = $order_terbaru->where('status', 'menunggu konfirmasi');
+                              $quantityOrders = $order_terbaru->where('status','menununggu konfirmasi');
+                          @endphp
+                          @if($unconfirmedOrders->count() > 0)
+                             <i class="ti ti-bell" style="color:#ff0000; background:#36353537">New Order</i>
+                          @endif
+                          <i class="ti ti-arrow-right fs-8"></i>
+                      </div>
+                  </div>
+                  <div class="mt-4">
+                      <h4 class="card-title mb-1 text-white">TRANSAKSI</h4>
+                      <h6 class="card-text fw-normal text-white-50">
+                          {{$totaltransaction}}
+                      </h6>
+                  </div>
               </div>
-              <div class="mt-4">
-                <h4 class="card-title mb-1 text-white">TRANSAKSI</h4>
-                <h6 class="card-text fw-normal text-white-50">
-                  {{$totaltransaction}}
-                </h6>
-              </div>
-            </div>
           </a>
-        </div>
+      </div>
         <div class="col-md-4 d-flex align-items-stretch">
           <a href="{{ route('costumer.index') }}" class="card bg-danger text-white w-100 card-hover">
             <div class="card-body">
@@ -116,7 +123,7 @@
               </div>
               <div class="mt-4">
                 <h4 class="card-title mb-1 text-white">
-                  TOTAL COSTUMER
+                  LAPORAN TOTAL COSTUMER
                 </h4>
                 <h6 class="card-text fw-normal text-white-50">
                   {{$totalcustomer}}

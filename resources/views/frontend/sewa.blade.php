@@ -71,6 +71,7 @@
             <div class="form-group">
                 <label for="tanggal_kembali">Tanggal kembali:</label>
                 <input type="datetime-local" name="tanggal_kembali" id="tanggal_kembali" class="form-control" required>
+                <span id="tanggalKembaliError" style="color: red;"></span>
             </div>
 
             <button type="submit" class="btn btn-primary">Sewa</button>

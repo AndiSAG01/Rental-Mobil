@@ -56,9 +56,11 @@
                                         @endif
                                     </td>
                                     </td>
-                                    <td>{{ \Carbon\Carbon::parse($ts->tanggal_rental)->isoFormat('DD-MM-YYYY HH:mm') }}
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($ts->tanggal_rental)->isoFormat('DD-MM-YYYY HH:mm') }}
                                     </td>
-                                    <td>{{ \Carbon\Carbon::parse($ts->tanggal_kembali)->isoFormat('DD-MM-YYYY HH:mm') }}
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($ts->tanggal_kembali)->isoFormat('DD-MM-YYYY HH:mm') }}
                                     </td>
                                     <td>
                                         @if ($ts->image)

@@ -107,6 +107,34 @@
 
     <!-- Template Javascript -->
     <script src="/assets/cs1/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var tanggalRentalInput = document.getElementById('tanggal_sewa');
+            var tanggalKembaliInput = document.getElementById('tanggal_kembali');
+            var tanggalKembaliError = document.getElementById('tanggalKembaliError');
+    
+            tanggalRentalInput.addEventListener('input', function () {
+                validateTanggalKembali();
+            });
+    
+            tanggalKembaliInput.addEventListener('input', function () {
+                validateTanggalKembali();
+            });
+    
+            function validateTanggalKembali() {
+                var tanggalRental = new Date(tanggalRentalInput.value);
+                var tanggalKembali = new Date(tanggalKembaliInput.value);
+    
+                if (tanggalKembali <= tanggalRental) {
+                    tanggalKembaliError.textContent = 'Tanggal kembali harus setelah tanggal rental.';
+                    tanggalKembaliInput.setCustomValidity('Tanggal kembali harus setelah tanggal rental.');
+                } else {
+                    tanggalKembaliError.textContent = '';
+                    tanggalKembaliInput.setCustomValidity('');
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

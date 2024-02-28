@@ -47,10 +47,7 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::find($id);
 
         if (!$transaksi) {
-            // Handle the case when the transaction with the given ID is not found.
-            // You can return an error view or redirect back, or do something else.
-            // For example:
-            // return redirect()->back()->with('error', 'Transaction not found.');
+          
         }
 
         // Assuming that the relationship between Transaksi and Bank is correctly set up.

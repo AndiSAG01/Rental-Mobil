@@ -56,7 +56,7 @@
                         </td>
                         <td>
                             @php
-                            $selisihHari = \Carbon\Carbon::today()->diffInDays($ts->tanggal_kembali);
+                            $selisihHari = \Carbon\Carbon::now()->diffInDays($ts->tanggal_kembali);
                             @endphp
                             @if (now() >= $ts->tanggal_kembali)
                             @currency($selisihHari * $ts->car->denda)

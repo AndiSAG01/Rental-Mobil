@@ -26,12 +26,24 @@
           <span class="hide-menu">DATA COSTUMER</span>
         </a>
       </li>
+      @php
+      $order_terbaru = DB::table('transaksi')
+                        ->join('users', 'users.id', '=', 'transaksi.user_id')
+                        ->join('cars', 'cars.id', '=', 'transaksi.car_id') 
+                        ->select('transaksi.*', 'users.name', 'cars.nama_mobil')
+                        ->limit(10)
+                        ->get();
+         $pendingConfirmationCount = $order_terbaru->where('status', 'menunggu konfirmasi')->count();
+      @endphp
       <li class="sidebar-item">
         <a class="sidebar-link" href="{{ route('admin.transaksi.index') }}" aria-expanded="false">
           <span>
             <i class="ti ti-shopping-cart"></i>
           </span>
           <span class="hide-menu">DATA TRANSAKSI</span>
+          @if($pendingConfirmationCount > 0)
+          <i class="ti ti-bell" style="color:#ff0000;">{{ $pendingConfirmationCount }}</i>
+      @endif
         </a>
       </li>
       <li class="sidebar-item">
