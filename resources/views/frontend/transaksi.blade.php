@@ -13,7 +13,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Mobil</th>
-                                <th scope="col">Memakai Driver</th>
+                                <th scope="col">Nama Driver</th>
                                 <th scope="col">Total Biaya Driver</th>
                                 <th scope="col">Total Harga Sewa</th>
                                 <th scope="col">Tanggal Rental</th>
@@ -27,7 +27,13 @@
                                 <tr>
                                     <th scope="row">{{ ++$index }}</th>
                                     <td>{{ $ts->car->nama_mobil }}</td>
-                                    <td>{{ $ts->driver == 0 ? 'TIDAK' : 'YA' }}</td>
+                                    <td>
+                                        @if ($ts->driver == 1 )
+                                        {{ $ts->Driver->name }}
+                                        @elseif ($ts->driver == 0)
+                                        <a href="" class="btn btn-info">Tanpa Driver</a>
+                                        @endif
+                                    </td>
                                     <td>
                                         @php
                                             $date = \Carbon\Carbon::parse($ts->tanggal_rental)->subDays(1);

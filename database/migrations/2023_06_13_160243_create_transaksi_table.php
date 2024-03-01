@@ -17,6 +17,8 @@ class CreateTransaksiTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('car_id')->constrained('cars');
+            $table->foreignId('driver_id')->constrained('drivers');
+            $table->foreignId('categorie_id')->constrained('categories');
             $table->boolean('driver');
             $table->datetime('tanggal_rental');
             $table->datetime('tanggal_kembali');

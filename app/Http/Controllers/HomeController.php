@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\categorie;
+use App\Models\Driver;
 use App\Models\User;
 use App\Models\Transaksi;
 use Carbon\Carbon;
@@ -11,7 +13,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Validated;
-
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -36,19 +38,31 @@ class HomeController extends Controller
 
     public function sewa(Request $request, $id)
     {
+        $driver = Driver::where('status', 'Aktif')->get();
 
-
-        $car = Car::find($id); // Assuming you want to retrieve the car with ID 1
-        return view('frontend.sewa', compact('car'));
+        $car = Car::find($id);
+        return view('frontend.sewa', compact('car','driver'));
     }
 
-
+    public function produkByKategori($id)
+    {
+       //menampilkan data sesua kategori yang diminta user
+        return view('frontend.kategori', [
+            'mobil' => Car::where('categories_id', $id)->paginate(5),
+            'categories' => Categorie::where('id', $id)->first()
+        ]);
+    }
 
     public function listing()
     {
-
+        $kat = Categorie::join('cars', 'cars.categories_id', '=', 'categories.id')
+        ->select(DB::raw('count(cars.categories_id) as jumlah, categories.*'))
+        ->groupBy('categories.id')
+        ->get();
+        
         return view('frontend.listing', [
             'mobil' => Car::get(),
+            'categories' => $kat
         ]);
     }
     public function logout(Request $request)
@@ -74,5 +88,6 @@ class HomeController extends Controller
         $transaksi = Transaksi::get();
         return view('admin.laporantransaction', compact('transaksi','year'));
     }
+
 
 }

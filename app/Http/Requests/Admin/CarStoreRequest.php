@@ -34,6 +34,8 @@ class CarStoreRequest extends FormRequest
             'charger' => 'required',
             'audio' => 'required',
             'ac'=> 'required',
+            'categories_id'  => 'required',
+            
         ];
     }
 }

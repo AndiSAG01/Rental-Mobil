@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Bank;
 use App\Models\Car;
+use App\Models\categorie;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
@@ -47,6 +48,7 @@ class DatabaseSeeder extends Seeder
        $cars = [
             [
                 'nama_mobil' => 'Toyota Kijang Innova',
+                'categories_id' => 1,
                 'harga_sewa' => 300000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_kijang.jpeg',
@@ -70,6 +72,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Toyota Avanza G 1.5',
+                'categories_id' => 1,
                 'harga_sewa' => 250000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_avanza5.jpeg',
@@ -93,6 +96,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Toyota Avanza G 1.3',
+                'categories_id' => 1,
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_avanza4.jpeg',
@@ -116,6 +120,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Toyota Avanza G 1.5',
+                'categories_id' => 1,
                 'harga_sewa' => 250000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_avanza3.jpeg',
@@ -139,6 +144,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Toyota Avanza E 1.3',
+                'categories_id' => 1,
                 'harga_sewa' => 300000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_avanza2.jpeg',
@@ -162,6 +168,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Toyota Avanza E 1.3',
+                'categories_id' => 1,
                 'harga_sewa' => 300000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_avanza.jpeg',
@@ -185,6 +192,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Toyota Avanza Veloz 1.3',
+                'categories_id' => 1,
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_avanza_veloz2.jpeg',
@@ -208,6 +216,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Toyota Avanza Veloz 1.5L',
+                'categories_id' => 1,
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/toyota_avanza_veloz.jpeg',
@@ -231,6 +240,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Honda Mobilio',
+                'categories_id' => 3,
                 'harga_sewa' => 150000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/honda_mobilio.jpeg',
@@ -251,6 +261,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Daihatsu Xenia R',
+                'categories_id' => 3,
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/daihatsu_xenia4.jpeg',
@@ -271,6 +282,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Daihatsu Xenia R 1.3',
+                'categories_id' => 3,
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/daihatsu_xenia3.jpeg',
@@ -291,6 +303,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Daihatsu Xenia R',
+                'categories_id' => 3,
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/daihatsu_xenia2.jpeg',
@@ -311,6 +324,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Daihatsu Xenia 1.3 X',
+                'categories_id' => 3,
                 'harga_sewa' => 200000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/daihatsu_xenia.jpeg',
@@ -331,6 +345,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Daihatsu Sigra',
+                'categories_id' => 3,
                 'harga_sewa' => 150000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/daihatsu_sigra.jpeg',
@@ -351,6 +366,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'nama_mobil' => 'Brio',
+                'categories_id' => 4,
                 'harga_sewa' => 150000,
                 'slug' => $slug,  // Remove quotes to insert as integer
                 'gambar' => 'cars/brio.jpeg',
@@ -381,6 +397,7 @@ class DatabaseSeeder extends Seeder
             // Buat record produk di database
             Car::create([
                 'nama_mobil' => $product['nama_mobil'],
+                'categories_id' => $product['categories_id'],
                 'harga_sewa' => $product['harga_sewa'],
                 'slug' => $slug,
                 'gambar' => $storagePath,
@@ -425,6 +442,34 @@ class DatabaseSeeder extends Seeder
             Bank::create([
                 'no_rekening' => $product['no_rekening'],
                 'image' => $storagePath,
+            ]);
+        }
+
+        $categorie = [
+            [
+                'name' => 'Toyota',
+            ],
+            [
+                'name' => 'Mitsubishi',
+            ],
+            [
+                'name' => 'Daihatsu',
+            ],
+            [
+                'name' => 'Honda',
+            ],
+            [
+                'name' => 'Suzuki',
+            ],
+            
+        ];
+        
+        foreach($categorie as $product)
+        {
+         
+            
+            categorie::create([
+                'name' => $product['name'],
             ]);
         }
     }

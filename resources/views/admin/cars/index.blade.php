@@ -13,6 +13,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Mobil</th>
+                            <th>Kategori</th>
                             <th>Gambar Mobil</th>
                             <th>Plat Mobil</th>
                             <th>Harga Sewa Mobil</th>
@@ -25,6 +26,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $car->nama_mobil }}</td>
+                            <td>{{ $car->categorie->name }}</td>
                             <td>
                                 <img src="{{  Storage::url($car->gambar) }}" width="200">
                             </td>

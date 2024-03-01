@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'isAdmin' => false,
             'gender' => $data['gender'],
-            'username' => $data['username'],
+            // 'username' => $data['username'],
             'alamat' => $data['alamat'],
             'ktp_photo' => $imagePath,
             'ktp_number' => $data['ktp_number'],

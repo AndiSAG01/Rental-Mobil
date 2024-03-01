@@ -13,6 +13,7 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Mobil</th>
+                        <th>Nama Driver</th>
                         <th>Bukti Pembayaran</th>
                         <th>Tanggal Rental</th>
                         <th>Tanggal Kembali</th>

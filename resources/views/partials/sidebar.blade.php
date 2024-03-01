@@ -19,6 +19,22 @@
         </a>
       </li>
       <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('admin.categorie') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-window"></i>
+          </span>
+          <span class="hide-menu">DATA KATEGORI</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('admin.driver') }}" aria-expanded="false">
+          <span>
+            <i class="ti ti-user"></i>
+          </span>
+          <span class="hide-menu">DATA DRIVER</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
         <a class="sidebar-link" href="{{ route('costumer.index') }}" aria-expanded="false">
           <span>
             <i class="ti ti-user-plus"></i>

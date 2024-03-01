@@ -31,6 +31,7 @@ class TransaksiController extends Controller
         Transaksi::create([
             'user_id' => $request->user_id,
             'car_id' => $request->car_id,
+            'driver_id' => $request->driver_id,
             'driver' => $request->driver,
             'tanggal_rental' => $request->tanggal_rental,
             'tanggal_kembali' => $request->tanggal_kembali,

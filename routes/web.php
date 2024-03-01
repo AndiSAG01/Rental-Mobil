@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Admin\CarController;
+use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\TransaksiAdmController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DriverController;
 use App\Models\Bank;
 use Illuminate\Auth\Events\Login;
 
@@ -27,7 +29,9 @@ use Illuminate\Auth\Events\Login;
     Route::get('/', [HomeController::class, 'index'])->name('homepage');
     Route::get('contact', [HomeController::class, 'contact'])->name('contact.index');
     Route::get('detail/{id}', [HomeController::class, 'detail'])->name('detail');
-    Route::get('listing', [HomeController::class, 'listing'])->name('listing');
+    Route::get('listing/', [HomeController::class, 'listing'])->name('listing');
+    Route::get('/kategori/{id}', [HomeController::class, 'produkByKategori'])->name('user.kategori');
+
 
 
     Route::middleware(['auth'])->group(function () {
@@ -84,10 +88,24 @@ Route::middleware(['admin:1'])->group(function () {
     Route::get('/admin/bank/create', [BankController::class,'create' ])->name('bank.create');
     Route::post('/admin/bank/store',[BankController::class,'store'])->name('bank.store');
     Route::get('/admin/bank/edit/{id}',[BankController::class,'edit'])->name('bank.edit');
-
-
     Route::put('/admin/bank/update/{id}', [BankController::class, 'update'])->name('bank.update');
     Route::delete('/admin/bank/{id}', [BankController::class, 'destroy'])->name('bank.destroy');
+
+    //categorie
+    Route::get('/admin/categorie', [CategorieController::class,'index' ])->name('admin.categorie');
+    Route::get('/admin/categorie/create', [CategorieController::class,'create' ])->name('categorie.create');
+    Route::post('/admin/categorie/store',[CategorieController::class,'store'])->name('categorie.store');
+    Route::get('/admin/categorie/edit/{id}',[CategorieController::class,'edit'])->name('categorie.edit');
+    Route::put('/admin/categorie/update/{id}', [CategorieController::class, 'update'])->name('categorie.update');
+    Route::delete('/admin/categorie/{id}', [CategorieController::class, 'destroy'])->name('categorie.destroy');
+
+    //drivers
+    Route::get('/admin/driver', [DriverController::class,'index' ])->name('admin.driver');
+    Route::get('/admin/driver/create', [DriverController::class,'create' ])->name('driver.create');
+    Route::post('/admin/driver/store',[DriverController::class,'store'])->name('driver.store');
+    Route::get('/admin/driver/edit/{id}',[DriverController::class,'edit'])->name('driver.edit');
+    Route::put('/admin/driver/update/{id}', [DriverController::class, 'update'])->name('driver.update');
+    Route::delete('/admin/driver/{id}', [DriverController::class, 'destroy'])->name('driver.destroy');
 
 
 

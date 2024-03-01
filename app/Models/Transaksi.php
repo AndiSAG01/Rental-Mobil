@@ -23,4 +23,16 @@ class Transaksi extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function driver()
+    {
+        return $this->belongsTo(Driver::class,'driver_id');
+    
+    }
+
+    public function categorie()
+    {
+        return $this->belongsTo(categorie::class);
+    }
+
 }

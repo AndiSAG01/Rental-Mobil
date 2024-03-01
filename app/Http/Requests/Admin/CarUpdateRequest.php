@@ -33,6 +33,7 @@ class CarUpdateRequest extends FormRequest
             'charger' => 'required',
             'audio' => 'required',
             'ac'=> 'required',
+            'categories_id'  => 'required',
         ];
     }
 }

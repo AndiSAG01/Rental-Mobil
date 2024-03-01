@@ -135,6 +135,49 @@
             }
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#driverSelect').change(function() {
+                if ($(this).val() == '1') {
+                    $('#dataDriverSection').show();
+                } else {
+                    $('#dataDriverSection').hide();
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#driverSelect').change(function() {
+                if ($(this).val() == '0') {
+                    $('#dataDriverSection').hide();
+                }
+            });
+        });
+    </script>
+   <script>
+    $(document).ready(function() {
+        $('#driverSelect').change(function() {
+            checkDriverStatus();
+        });
+
+        // Check driver status on page load
+        checkDriverStatus();
+    });
+
+    function checkDriverStatus() {
+        var selectedStatus = $('#driverIdSelect option:selected').data('status');
+
+        if (selectedStatus === 'Aktif') {
+            $('#dataDriverSection').show();
+        }elseif (selectedStatus === 'Tidak Aktif') {
+    } $('#dataDriverSection').hide();}
+
+    // Listen for change event on driverIdSelect
+    $('#driverIdSelect').change(function() {
+        checkDriverStatus();
+    });
+</script>
 </body>
 
 </html>

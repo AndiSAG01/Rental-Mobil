@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('kd_user');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('username')->unique();
+            $table->string('username')->nullable();
             $table->string('alamat');
             $table->string('gender');
             $table->string('phone_number');
